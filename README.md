@@ -1,5 +1,5 @@
 # Tutorial: Wie man Virtuelle Maschinen einrichtet (Eine Anleitung)
-v 2.1 | Stand: November 2021 | Lizenz: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.de)
+v 2.2 | Stand: Dezember 2021 | Lizenz: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.de)
 
 Weitere Anleitungen von uns findet man [hier](https://lehrerlaempel.github.io/anleitungen/)!
 
@@ -61,16 +61,27 @@ Wählen Sie dann als Format das "Open Virtualization Format 2.0" und den gewüns
 
 Die so erstellte Datei ist ein praktisches BackUp Ihrer Arbeit und kann nun auf jedem anderen PC mit VirtualBox mit per Doppelklick importiert werden. Und das beste: Das geht auch, wenn als Host jeweils andere Betriebssysteme verwendet werden.
 
-# 5 Sonstiges
+# 6 Read Only
+In der Startansicht von VirtualBox können Sie sich unter "Datei" -> "Manager für virtuelle Medien" eine Übersicht der vorhandenen Festplatten Ihrer VMs anzeigen lassen. Als "Typ" wird vermutlich bei allen Festplatten "normal" hinterlegt sein. Wenn Sie das jetzt bei einer fertig eingerichteten und ausgeschaltenen VM auf "nicht veränderlich" umstellen, werden zukünftig sämtliche Änderungen nur noch im Arbeitsspeicher hinterlegt, aber nicht mehr auf die Festplatte geschrieben. Sie erhalten also eine Umgebung, die nach jedem Neustart wieder im Urzustand ist. Das kann z.B. für eine Surfumgebung für Recherchezwecke ganz interessant sein.
+
+Wichtig ist nur, dass sie ab und zu den Typ auf "normal" umstellen, dann kurz Updates installieren, bevor Sie wieder zu "nicht veränderlich" wechseln.
+
+# 7 USB-Speicher nutzen
+Sobald Sie an ihrem Computer einen USB-Speicher einstecken, wird dieser zunächst im Host angezeigt. Um diesen in der VM nutzen zu können, klicken Sie in der laufenden VM oben unter "Geräte" -> "USB" auf das gewünschte Gerät. Nach einer kurzen Pause steht der USB-Stick dann in der VM zur Verfügung.
+
+Im [Download-Bereich von VirtualBox](https://www.virtualbox.org/wiki/Downloads) finden Sie ein sogenanntes "VirtualBox XXX Oracle VM VirtualBox Extension Pack". Wenn Sie viel mit USB-Sticks arbeiten möchten, installieren Sie vorher das zu Ihrer VirtualBox-Version passende Extension Pack. Danach können Sie in der ausgeschaltenen VM in den Einstellungen unter "USB" den USB 3 Controller auswählen. Das beschleunigt die Nutzung der USB-Speicher erheblich-
+
+# 8 Sonstiges
 - Wer das Betriebssystem seiner VM bei der Installation direkt verschlüsselt, muss sich beim Export der VMs oder beim Sichern dieser in BackUps weniger Gedanken machen, wie diese geschützt werden könnten. Auch wer auf einem Computer ohne aktivierte Festplattenverschlüsselung arbeitet, sollte in Erwägung ziehen, seine VMs direkt zu verschlüsseln.
 - Sofern Ihr Computer eine SSD-Festplatte hat, sollten Sie unbedingt versuchen, ihre VMs auf dieser zu speichern. Der Geschwindigkeitsunterschied zu VMs auf herkömmlichen Magnetfestplatten ist enorm!
 - Per Rechtsklick kann man in der Übersicht von VirtualBox übrigens bequem Desktopverknüpfungen zu einzelnen VMs erstellen.
 - Man muss VMs übrigens nicht immer komplett selbst einrichten. Zum Beispiel [hier](https://www.osboxes.org/virtualbox-images/) oder [hier](https://developer.microsoft.com/de-de/windows/downloads/virtual-machines/) gibt es bereits fertige virtuelle Maschinen. Um den Anbietern aber nicht blind vertrauen zu müssen, empfiehlt es sich aber, für persönliche oder sensible Daten verwendete Maschinen immer selbst aufzusetzen.
 - Eine spannende Anwendung für VMs ist [Whonix](https://www.whonix.org/#download). Das sind im Endeffekt zwei fertige VMs. Die eine übernimmt das Routing ihres Datenverkehrs durch das TorNetz, die andere können Sie als Workstation nutzen. Spannendes Konzept und ganz bequem mit einem Mausklick importiert!
 - Best Practice: Installieren Sie sich zunächst eine VM mit dem Namen "Rohling" und bringen Sie diese auf den neusten Stand. Diese nutzen Sie nicht zum arbeiten, sondern starten diese nur manchmal für Updates. Immer, wenn Sie eine VM benötigen, erstellen Sie einfach via rechter Maustaste auf der Startseite von VirtualBox einen vollständigen Klon, z.B. mit dem Namen "Arbeit: E-Mail", einen weiteren für "Privat: Daten", etc. So müssen Sie nur einmal eine VM einrichten und können dann immer in wenigen Sekunden weitere VMs erstellen.
+- Wer langfristig Spaß mit seinen VMs haben will, fährt diese ganz regulär herunter - so wie man es auch mit einem physischen PC machen würde. Ein Klick auf das rote X oben rechts entspricht dem unangekündigten Stecker ziehen beim echten PC. Kann man machen. Geht halt nicht lange gut.
 
-# 6 Das Kleingedruckte
-## 6.1 Fehlerteufel
+# 9 Das Kleingedruckte
+## 9.1 Fehlerteufel
 Diese Anleitung wurde von [lehrerlaempel](https://github.com/lehrerlaempel) nach bestem Wissen und Gewissen erstellt. Wir haben die feste Absicht, diese im Laufe der Zeit an Änderungen der erwähnten Software anzupassen und um weitere Aspekte zu ergänzen. Den Stand der Ihnen vorliegenden Version finden Sie ganz am Anfang der Seite.
 
 Ihnen sind Fehler aufgefallen? Sie haben Verbesserungs- oder Änderungswünsche? Dann nehmen Sie gerne [Kontakt](https://lehrerlaempel.github.io/anleitungen/) mit uns auf. Wir sind tatsächlich sehr an Ihrer Rückmeldung interessiert!
@@ -79,7 +90,7 @@ Im Rahmen unserer Möglichkeiten haben wir auch versucht sicherzustellen, dass s
 
 Wir übernehmen explizit keinerlei Haftung für die hier getroffenen Aussagen oder möglicherweise daraus entstandene Datenverluste oder sonstigen Schäden. Wir haben diese Texte nach bestem Wissen und Gewissen verfasst, sind aber wie alle Menschen fehlbar. Verstehen Sie diese Anleitungen also bitte als aufrichtig wohlmeindende Ratschläge auf Augenhöhe, jedoch ohne jede Gewähr.
 
-## 6.2 Lizenz
+## 9.2 Lizenz
 Dieser Text steht unter einer CC-Lizenz, ist also quasi schöpferisches Gemeingut.
 
 Sie dürfen:
@@ -98,7 +109,3 @@ Hinweise:
 - Es werden keine Garantien gegeben und auch keine Gewähr geleistet. Die Lizenz verschafft Ihnen möglicherweise nicht alle Erlaubnisse, die Sie für die jeweilige Nutzung brauchen. Es können beispielsweise andere Rechte wie Persönlichkeits- und Datenschutzrechte zu beachten sein, die Ihre Nutzung des Materials entsprechend beschränken.
 
 *Dies war eine allgemeinverständliche Zusammenfassung der [Lizenz](https://creativecommons.org/licenses/by-sa/4.0/legalcode.de), die diese nicht ersetzt.*
-
-# 12 Ausblick/ToDo
-Die folgenden Punkte sollen zukünftig noch in dieser Anleitung ergänzt werden:
-- Einbinden von Geräte/Speicher via USB
