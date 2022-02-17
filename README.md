@@ -1,5 +1,5 @@
 # Tutorial: Wie man Virtuelle Maschinen einrichtet (Eine Anleitung)
-v 2.2 | Stand: Dezember 2021 | Lizenz: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.de)
+v 2.4 | Stand: Februar 2022 | Lizenz: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.de)
 
 Weitere Anleitungen von uns findet man [hier](https://lehrerlaempel.github.io/anleitungen/)!
 
@@ -62,9 +62,15 @@ Wählen Sie dann als Format das "Open Virtualization Format 2.0" und den gewüns
 Die so erstellte Datei ist ein praktisches BackUp Ihrer Arbeit und kann nun auf jedem anderen PC mit VirtualBox mit per Doppelklick importiert werden. Und das beste: Das geht auch, wenn als Host jeweils andere Betriebssysteme verwendet werden.
 
 # 6 Read Only
-In der Startansicht von VirtualBox können Sie sich unter "Datei" -> "Manager für virtuelle Medien" eine Übersicht der vorhandenen Festplatten Ihrer VMs anzeigen lassen. Als "Typ" wird vermutlich bei allen Festplatten "normal" hinterlegt sein. Wenn Sie das jetzt bei einer fertig eingerichteten und ausgeschaltenen VM auf "nicht veränderlich" umstellen, werden zukünftig sämtliche Änderungen nur noch im Arbeitsspeicher hinterlegt, aber nicht mehr auf die Festplatte geschrieben. Sie erhalten also eine Umgebung, die nach jedem Neustart wieder im Urzustand ist. Das kann z.B. für eine Surfumgebung für Recherchezwecke ganz interessant sein.
+## 6.1 Festplatte einfrieren
+In der Startansicht von VirtualBox können Sie sich unter "Datei" -> "Manager für virtuelle Medien" eine Übersicht der vorhandenen Festplatten Ihrer VMs anzeigen lassen. Als "Typ" wird vermutlich bei allen Festplatten "normal" hinterlegt sein. Wenn Sie das jetzt bei einer fertig eingerichteten und ausgeschaltenen VM auf "nicht veränderlich" umstellen, werden zukünftig sämtliche Änderungen nur noch im Arbeitsspeicher hinterlegt, aber nicht mehr auf die Festplatte geschrieben. Sie erhalten also eine Umgebung, die nach jedem Neustart wieder im Urzustand ist. Das kann z.B. für eine Surfumgebung für Recherchezwecke ganz interessant sein. (Wenn das System beim Umstellen fragt: Ja, wir wollen die Platte "freigeben".)
 
-Wichtig ist nur, dass sie ab und zu den Typ auf "normal" umstellen, dann kurz Updates installieren, bevor Sie wieder zu "nicht veränderlich" wechseln.
+## 6.2 Festplatte auftauen
+Wichtig ist nur, dass Sie ab und zu den Typ auf "normal" umstellen und dann kurz Updates installieren, bevor Sie wieder zu "nicht veränderlich" wechseln. Sonst fehlen irgendwann wichtige Sicherheitsupdates! Das ist leider etwas komplizierter. Dazu in der Startansicht von VirtualBox unter "Datei" -> "Manager für virtuelle Medien" zunächst durch klicken auf ">" vor der betroffenen Festplatte alle Optionen ausklappen. Etwas eingerückt erscheint nun unter unserer betroffenen Festplatte eine weitere in selber Endgröße mit einem zufallsgenerierten Namen wie z.B. "{821cf28-05b3-4570-069cdfed}.vdi". Diese Platte anklicken, dann oben erst "Freigeben" dann "Entfernen" klicken. Auf die Frage, was wir damit machen möchte, wählen wir "Löschen".
+Nun ändern wir den Typ unserer eigentlichen Festplatte zu "normal", speichern, und verlassen den Manager für virtuelle Medien.
+Bevor wir das System jetzt starten, müssen wir in den Einstellungen unserer VM noch unter dem Punkt "Massenspeicher" noch auf das Symbol für "Festplatte hinzufügen" klicken. In dem dann auftauchenden Fenster finden wir unter "Not Attached" unsere Platte. Diese einfach auswählen, die Einstellungen über "OK" beenden und fertig. Das System kann jetzt wieder normal verändert werden. 
+
+ALso: Updates instalieren und dann schnell wieder einfrieren, bevor wir damit weiterarbeiten :)
 
 # 7 USB-Speicher nutzen
 Sobald Sie an ihrem Computer einen USB-Speicher einstecken, wird dieser zunächst im Host angezeigt. Um diesen in der VM nutzen zu können, klicken Sie in der laufenden VM oben unter "Geräte" -> "USB" auf das gewünschte Gerät. Nach einer kurzen Pause steht der USB-Stick dann in der VM zur Verfügung.
